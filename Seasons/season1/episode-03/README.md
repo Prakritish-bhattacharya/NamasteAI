@@ -1242,3 +1242,8 @@ This includes things like made-up fake book references, academic papers, invente
 
 ---
 
+<div align="right">
+
+#### [Next Episode →](../episode-04/README.md)
+
+</div>
