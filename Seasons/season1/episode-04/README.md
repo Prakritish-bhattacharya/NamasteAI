@@ -68,3 +68,31 @@ which are subsequently converted back into text.
 </p>
 
 Without tokenization, language models would not be able to operate on just raw textual data.
+
+[Tokenizer Playground](https://platform.openai.com/tokenizer)
+
+<p align="center">
+  <a href="./images/live-tokenization-demo1.png">
+    <img 
+      src="./images/live-tokenization-demo1.png" 
+      width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Tokenizer</em>
+  </p>
+</p>
+
+<p align="center">
+  <a href="./images/live-tokenization-demo2.png">
+    <img 
+      src="./images/live-tokenization-demo2.png" 
+      width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Tokenizer, asign unique integer</em>
+  </p>
+</p>
