@@ -39,7 +39,7 @@ The human has a mental representation of India, cities, geography, etc. But Chat
 
 ### 2. So does ChatGPT `guess`?
 
-In one important sense, yes. At its core, an [LLM](../episode-02/README.md) generates text by predicting the next [token](../episode-02/README.md).
+In one important sense, yes. At its core, an [LLM](../episode-02/README.md) generates text by predicting the next [[token](../episode-04/README.md)](###-Tokenization).
 
 **For Example:**
 
