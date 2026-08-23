@@ -75,7 +75,7 @@ Without tokenization, language models would not be able to operate on just raw t
   <a href="./images/live-tokenization-demo1.png">
     <img 
       src="./images/live-tokenization-demo1.png" 
-      width="400"
+      width="300"
       alt="Architecture diagram"
     />
   </a>
@@ -88,7 +88,7 @@ Without tokenization, language models would not be able to operate on just raw t
   <a href="./images/live-tokenization-demo2.png">
     <img 
       src="./images/live-tokenization-demo2.png" 
-      width="400"
+      width="300"
       alt="Architecture diagram"
     />
   </a>
