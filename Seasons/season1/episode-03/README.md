@@ -1,3 +1,16 @@
+<div align="center">
+
+# Does ChatGPT Know or Does It Guess?
+
+</div>
+
+
+<div align="right">
+
+**[Next Episode →](../episode-04/README.md)**
+
+</div>
+
 ## 1.🧠Does ChatGPT Know or Does It Guess?
 
 ChatGPT does not `know` things in exactly the same way humans know them. It generates answers by predicting what tokens are most likely to come next, based on patterns learned during training and the context of the conversation.
@@ -1244,6 +1257,6 @@ This includes things like made-up fake book references, academic papers, invente
 
 <div align="right">
 
-#### [Next Episode →](../episode-04/README.md)
+ **[Next Episode →](../episode-04/README.md)**
 
 </div>
