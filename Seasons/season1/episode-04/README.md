@@ -8,10 +8,7 @@
 <table width="100%">
   <tr>
     <td align="left">
-      <a href="../episode-02/README.md">← Previous Episode</a>
-    </td>
-    <td align="center">
-      •
+      <a href="../episode-03/README.md">← Previous Episode</a>
     </td>
     <td align="right">
       <a href="../episode-04/README.md">Next Episode →</a>

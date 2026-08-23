@@ -5,11 +5,22 @@
 </div>
 
 
-<div align="right">
+
+<table width="100%">
+  <tr>
+    <td align="left">
+      <!-- <a href="../episode-03/README.md">← Previous Episode</a> -->
+    </td>
+    <td align="right">
+      <a href="../episode-04/README.md">Next Episode →</a>
+    </td>
+  </tr>
+</table>
+<!-- <div align="right">
 
 **[Next Episode →](../episode-04/README.md)**
 
-</div>
+</div> -->
 
 ## 1.🧠Does ChatGPT Know or Does It Guess?
 
