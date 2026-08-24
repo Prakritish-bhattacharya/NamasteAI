@@ -788,3 +788,182 @@ As we saw before, the alphabet is the unique set composed of all the first lette
 ### Key Takeaway
 
 > **WordPiece is a subword tokenization algorithm that builds a vocabulary of reusable word pieces and represents words as combinations of those pieces.**
+
+
+---
+
+## 5. What is Unigram ?
+
+**Unigram** is a subword tokenization algorithm used to break text into smaller pieces called **tokens**.
+
+The main idea is different from BPE and WordPiece.
+
+Instead of starting with small pieces and repeatedly merging them, Unigram starts with a **large vocabulary of possible subwords** and gradually removes the less useful ones.
+```text
+BPE
+Small tokens → Merge useful pairs → Larger vocabulary
+
+Unigram
+Large vocabulary → Remove less useful tokens → Smaller vocabulary
+```
+> **Easy way to remember:** BPE builds upward, while Unigram prunes downward.
+
+### 1. Why Do We Need Unigram?
+Take a word like:
+```text
+unhappiness
+```
+There can be several reasonable ways to split it:
+```text
+un + happiness
+```
+or:
+```text
+un + happi + ness
+```
+or:
+```text
+u + n + happiness
+```
+Unigram tries to choose the segmentation that has the **highest probability** according to the vocabulary it has learned.
+
+So, instead of asking:
+> Which pair should I merge?
+
+Unigram is closer to asking:
+
+> **Which combination of tokens gives the most probable representation of this word?**
+
+#### How Unigram Works
+The training process can be understood in a few stages,the vocabulary gradually becomes smaller and more useful.
+
+<p align="center">
+  <a href="./images/unigram.png">
+    <img 
+      src="./images/unigram.png" 
+      width="300"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Unigram Work flow</em>
+  </p>
+</p>
+
+**Let's explain the above diagram step by step**
+
+**Step 1 - Start With a Large Vocabulary:** Unlike BPE, Unigram does not begin with only individual characters and build everything through merges.
+
+Instead, it starts with a relatively **large collection of candidate subwords**.
+
+For example:
+```text
+a
+an
+and
+art
+artificial
+int
+intelligence
+intel
+ligence
+...
+```
+Many of these candidates may not survive until the final vocabulary.
+
+**Step 2 - Assign Probabilities:** Each candidate token is given a probability.
+
+For example:
+
+| Token | Probability |
+|:---:|---:|
+| `the` | 0.20 |
+| `ing` | 0.08 |
+| `tion` | 0.05 |
+| `model` | 0.04 |
+| `token` | 0.03 |
+
+These numbers are only for understanding the idea. The real algorithm learns probabilities from the training corpus.
+
+**Step 3 - Find Possible Segmentations:**
+
+Suppose the tokenizer receives:
+
+```text
+tokenization
+```
+It might have several possible ways to split it:
+```text
+token + ization
+```
+```text
+token + iz + ation
+```
+```text
+to + ken + ization
+```
+```text
+t + o + k + e + n + ization
+```
+The tokenizer evaluates these possibilities using the learned probabilities.
+
+**Step 4 - Choose the Best Segmentation:** The tokenizer prefers the segmentation with the highest probability.
+
+For example:
+
+```text
+token + ization
+       ↓
+higher probability
+       ↓
+selected
+```
+The exact result depends on the vocabulary learned during training. This probabilistic approach is one of the important differences between Unigram and merge-based approaches.
+
+**Step 5 - Vocabulary Pruning:** One of the most important ideas in Unigram is **pruning**.
+
+Imagine that the initial vocabulary contains:
+```text
+10,000 candidate tokens
+```
+The algorithm checks which tokens are useful and which contribute very little.
+
+Some candidates are removed:
+```text
+10,000 tokens
+      ↓
+remove weak candidates
+      ↓
+8,000 tokens
+      ↓
+remove more
+      ↓
+6,000 tokens
+      ↓
+...
+      ↓
+final vocabulary
+```
+The goal is not simply to have the smallest possible vocabulary. The goal is to keep a vocabulary that can represent the training data **well enough while staying compact**.
+
+#### Multiple Possible Segmentations 
+One interesting feature of Unigram is that a word can have **multiple possible segmentations**.
+
+For example:
+```text
+lowest
+
+or 
+
+low + est
+
+or
+
+low + e + st
+
+or
+
+l + o + w + est
+```
+The tokenizer assigns probabilities to these possibilities and chooses the segmentation that best fits the learned vocabulary.
+
