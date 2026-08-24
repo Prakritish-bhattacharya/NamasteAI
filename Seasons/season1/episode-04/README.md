@@ -509,3 +509,152 @@ print(alphabet)
 [ ',', '.', 'C', 'F', 'H', 'T', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's',
   't', 'u', 'v', 'w', 'y', 'z', 'Ġ']
 ```
+
+
+---
+
+## 4. What is WordPiece ?
+
+**WordPiece** is a subword tokenization algorithm that builds a vocabulary of useful subword units and uses them to represent words efficiently. It develops by Google and famously used to pre-train models like [BERT](https://huggingface.co/learn/llm-course/en/chapter6/6) . WordPiece became especially well known through BERT and related models.
+
+### 1. What Problem Does WordPiece Solve?
+
+A language model needs to convert text into tokens before it can process it.
+
+**Word-Level Tokenization**
+
+```text
+"playing" → ["playing"]
+"played"  → ["played"]
+"playful" → ["playful"]
+```
+
+This can require a very large vocabulary and struggles with rare or unseen words.
+
+**Character-Level Tokenization**
+
+```text
+"playing"
+    ↓
+["p", "l", "a", "y", "i", "n", "g"]
+```
+This can represent almost any word, but creates long token sequences.
+
+**WordPiece: The Middle Ground**
+
+WordPiece breaks words into reusable subword units:
+```text
+"playing"
+    ↓
+["play", "##ing"]
+```
+The model can reuse `play` and `##ing` across many different words.
+
+#### What Does `##` Mean?
+
+WordPiece commonly uses `##` to indicate that a subword is a continuation of the previous token.
+```text
+"playing"
+    ↓
+["play", "##ing"]
+```
+**Here:**
+- `play` starts the word.
+- `##ing` continues the word.
+**Similarly:**
+```text
+"unwanted"
+    ↓
+["un", "##want", "##ed"]
+```
+The `##` is part of the tokenizer's representation. It distinguishes a continuation subword from one occurring at the beginning of a word.
+
+**Example:**
+
+Consider token is:
+```text
+ play
+ playing
+ played
+ player
+ ```
+A WordPiece vocabulary might contain:
+```text
+play
+##ing
+##ed
+##er
+```
+The words could then be represented as:
+```text
+play     → ["play"]
+
+playing  → ["play", "##ing"]
+
+played   → ["play", "##ed"]
+
+player   → ["play", "##er"]
+```
+The model does not need a separate vocabulary entry for every complete word.
+
+### 2. How WordPiece Builds Its Vocabulary
+
+WordPiece starts with a base vocabulary containing small units and learns useful subword combinations from the training corpus (a large, organized collection of text or speech data).
+The exact training algorithm is more sophisticated than simply selecting the most frequent pair.
+
+
+<p align="center">
+  <a href="./images/wordpiece.png">
+    <img 
+      src="./images/wordpiece.png" 
+      width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>WordPiece Training Workflow</em>
+  </p>
+</p>
+
+Imagine the corpus contains:
+```text
+play
+playing
+played
+player
+```
+The tokenizer notices that: `play` is useful across multiple words.
+It may therefore build vocabulary units such as:
+```text
+play
+##ing
+##ed
+##er
+```
+**Now:**
+```text
+playing → play + ##ing
+played  → play + ##ed
+player  → play + ##er
+```
+The vocabulary becomes reusable instead of containing every complete word.
+
+#### Handling Unknown Words :
+One advantage of WordPiece is its ability to break unfamiliar words into smaller pieces.
+
+For example, depending on the learned vocabulary:
+```text
+"unhappiness"
+        ↓
+["un", "##happi", "##ness"]
+```
+If the tokenizer cannot represent a word using its available subwords, it may produce a special unknown token:
+```text
+[UNK]
+```
+So WordPiece does not guarantee that every possible string can always be represented.
+
+### Key Takeaway
+
+> **WordPiece is a subword tokenization algorithm that builds a vocabulary of reusable word pieces and represents words as combinations of those pieces.**
+
