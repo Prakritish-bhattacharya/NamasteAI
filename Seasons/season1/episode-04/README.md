@@ -967,3 +967,25 @@ l + o + w + est
 ```
 The tokenizer assigns probabilities to these possibilities and chooses the segmentation that best fits the learned vocabulary.
 
+#### Unigram in the LLM Pipeline
+
+Unigram is responsible for the **tokenization stage**. So Unigram does not understand the meaning of the sentence by itself.
+<p align="center">
+  <a href="./images/unigram-llm-pipeline.png">
+    <img 
+      src="./images/unigram-llm-pipeline.png" 
+      width="500"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Unigram LLM pipeline</em>
+  </p>
+</p>
+
+## Key Takeaway
+
+> **Unigram is a probabilistic subword tokenization algorithm that starts with a large vocabulary of candidate tokens and repeatedly removes less useful tokens until it reaches a compact vocabulary.**
+
+The tokenizer then uses the probabilities of the remaining tokens to find a good way to split new text.
+> **BPE builds the vocabulary by merging. Unigram builds it by pruning.**
