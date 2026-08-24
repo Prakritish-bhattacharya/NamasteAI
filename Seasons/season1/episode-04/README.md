@@ -4,7 +4,6 @@
 
 </div>
 
-
 <div style="display: flex; justify-content: space-between;">
 
 <a href="../episode-03/README.md">← Previous Episode</a>
@@ -14,8 +13,6 @@
 </div>
 
 ---
-
-
 
 LLMs basically does not understand words. They turn words into numbers and map them into a giant mathematical space. Sequence of token ID LLMs understand. Spliting words into [token]() is called [tokenization](###-Tokenization).
 
@@ -34,21 +31,21 @@ LLMs basically does not understand words. They turn words into numbers and map t
 
 ## 1. Tokenization
 
-Tokenization is the process of converting text into a sequence of tokens. 
+Tokenization is the process of converting text into a sequence of tokens.
 
-Tokens can be words, subwords or characters. 
+Tokens can be words, subwords or characters.
 
-Tokens are the smallest meaning of a text that can be processed by a LLM ( Large Language Model ). In the LLM pre-training phase after tokenization each token assigned a unique integer. For each integer, there is a corresponding row in a `lookup table`, which is the vector presentation of that token. 
+Tokens are the smallest meaning of a text that can be processed by a LLM ( Large Language Model ). In the LLM pre-training phase after tokenization each token assigned a unique integer. For each integer, there is a corresponding row in a `lookup table`, which is the vector presentation of that token.
 
 ### Why do we need Tokenization?
 
-Suppose Prakritish want to `pre-train` his own language model. And he have `100 GB` textual data.Main problem is  Language models or any ML models can only process numbers. Here he needs a method to convert his text into numbers. There is where tokenization comes into play. 
+Suppose Prakritish want to `pre-train` his own language model. And he have `100 GB` textual data.Main problem is Language models or any ML models can only process numbers. Here he needs a method to convert his text into numbers. There is where tokenization comes into play.
 
 To use language model, we'll first tokenize the text.
 
-Then we'll assign each token a unique integer. 
+Then we'll assign each token a unique integer.
 
-These integers are then vectorized and fed into the language model. 
+These integers are then vectorized and fed into the language model.
 
 The language model processes this vectorized input and outputs integers again
 
@@ -97,7 +94,6 @@ Without tokenization, language models would not be able to operate on just raw t
   </p>
 </p>
 
-
 ## 2. Subword Tokenization
 
 Subword tokenization involves breaking words into smaller, meaningful subword units. This method is useful for handling rare or unknown words by breaking them into subword parts, which are more likely to be part of the model’s vocabulary.
@@ -108,7 +104,6 @@ Subword tokenization involves breaking words into smaller, meaningful subword un
 - Subword Tokens: ['Un','trust','able']
 
 Subword tokenization is important in Generative model because it allows models to represent rare or unseen words more efficiently. Instead of increasing the vocabulary to cover every possible word, subword tokenization enables models to work with a smaller vocabulary while generating more flexible outputs.
-
 
 ### Why Do We Need Subword Tokenization?
 
@@ -136,7 +131,7 @@ A subword tokenizer can instead identify familiar pieces:
 
 The model can therefore work with parts of the word even if it has never encountered the complete word before.
 
-### Word-Level vs Character-Level vs Subword-Level 
+### Word-Level vs Character-Level vs Subword-Level
 
 Subword tokenization provides a practical middle ground between representing entire words and individual characters.
 
@@ -185,12 +180,12 @@ The exact split depends on the tokenizer and the vocabulary it has learned. Ther
 
 Different tokenization algorithms use different strategies to build their vocabulary. Some widely used approaches include:
 
-| Method | Commonly Associated With |
-|---|---|
+| Method                       | Commonly Associated With               |
+| ---------------------------- | -------------------------------------- |
 | **BPE (Byte Pair Encoding)** | GPT-family and many modern NLP systems |
-| **WordPiece** | BERT |
-| **SentencePiece** | T5 and many modern language models |
-| **Unigram** | SentencePiece-based tokenizers |
+| **WordPiece**                | BERT                                   |
+| **SentencePiece**            | T5 and many modern language models     |
+| **Unigram**                  | SentencePiece-based tokenizers         |
 
 The important idea is that the tokenizer learns a vocabulary containing **frequently occurring words and subword pieces**.
 
@@ -198,10 +193,9 @@ The important idea is that the tokenizer learns a vocabulary containing **freque
 
 > **Subword tokenization provides a middle ground between word-level and character-level tokenization, allowing language models to work with a manageable vocabulary while still representing rare, unfamiliar, and newly formed words.**
 
-
 ## 3. Byte-Pair encoding
 
-Byte-pair encoding was first introduced in 1994 as a simple data compression technique by iteratively replacing the most frequent pair of bytes in a sequence with a single, unused byte. 
+Byte-pair encoding was first introduced in 1994 as a simple data compression technique by iteratively replacing the most frequent pair of bytes in a sequence with a single, unused byte.
 
 Byte-Pair Encoding (BPE) was initially developed as an algorithm to compress texts, and then used by OpenAI for tokenization when pretraining the GPT model. It’s used by a lot of Transformer models, including GPT, GPT-2, RoBERTa, BART, and DeBERTa.
 
@@ -354,13 +348,13 @@ hugs  → h · u · g · s   → h · ug · s
 
 ### 📊 Corpus After the First Merge
 
-| Word | Frequency | Tokens |
-|:---:|:---:|:---|
-| `hug` | **10×** | `h · ug` |
-| `pug` | **5×** | `p · ug` |
-| `pun` | **12×** | `p · u · n` |
-| `bun` | **4×** | `b · u · n` |
-| `hugs` | **5×** | `h · ug · s` |
+|  Word  | Frequency | Tokens       |
+| :----: | :-------: | :----------- |
+| `hug`  |  **10×**  | `h · ug`     |
+| `pug`  |  **5×**   | `p · ug`     |
+| `pun`  |  **12×**  | `p · u · n`  |
+| `bun`  |  **4×**   | `b · u · n`  |
+| `hugs` |  **5×**   | `h · ug · s` |
 
 ---
 
@@ -506,10 +500,39 @@ print(alphabet)
 ```
 
 ```json
-[ ',', '.', 'C', 'F', 'H', 'T', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's',
-  't', 'u', 'v', 'w', 'y', 'z', 'Ġ']
+[
+  ",",
+  ".",
+  "C",
+  "F",
+  "H",
+  "T",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "y",
+  "z",
+  "Ġ"
+]
 ```
-
 
 ---
 
@@ -538,54 +561,67 @@ This can require a very large vocabulary and struggles with rare or unseen words
     ↓
 ["p", "l", "a", "y", "i", "n", "g"]
 ```
+
 This can represent almost any word, but creates long token sequences.
 
 **WordPiece: The Middle Ground**
 
 WordPiece breaks words into reusable subword units:
+
 ```text
 "playing"
     ↓
 ["play", "##ing"]
 ```
+
 The model can reuse `play` and `##ing` across many different words.
 
 #### What Does `##` Mean?
 
 WordPiece commonly uses `##` to indicate that a subword is a continuation of the previous token.
+
 ```text
 "playing"
     ↓
 ["play", "##ing"]
 ```
+
 **Here:**
+
 - `play` starts the word.
 - `##ing` continues the word.
-**Similarly:**
+  **Similarly:**
+
 ```text
 "unwanted"
     ↓
 ["un", "##want", "##ed"]
 ```
+
 The `##` is part of the tokenizer's representation. It distinguishes a continuation subword from one occurring at the beginning of a word.
 
 **Example:**
 
 Consider token is:
+
 ```text
  play
  playing
  played
  player
- ```
+```
+
 A WordPiece vocabulary might contain:
+
 ```text
 play
 ##ing
 ##ed
 ##er
 ```
+
 The words could then be represented as:
+
 ```text
 play     → ["play"]
 
@@ -595,13 +631,13 @@ played   → ["play", "##ed"]
 
 player   → ["play", "##er"]
 ```
+
 The model does not need a separate vocabulary entry for every complete word.
 
 ### 2. How WordPiece Builds Its Vocabulary
 
 WordPiece starts with a base vocabulary containing small units and learns useful subword combinations from the training corpus (a large, organized collection of text or speech data).
 The exact training algorithm is more sophisticated than simply selecting the most frequent pair.
-
 
 <p align="center">
   <a href="./images/wordpiece.png">
@@ -617,44 +653,138 @@ The exact training algorithm is more sophisticated than simply selecting the mos
 </p>
 
 Imagine the corpus contains:
+
 ```text
 play
 playing
 played
 player
 ```
+
 The tokenizer notices that: `play` is useful across multiple words.
 It may therefore build vocabulary units such as:
+
 ```text
 play
 ##ing
 ##ed
 ##er
 ```
+
 **Now:**
+
 ```text
 playing → play + ##ing
 played  → play + ##ed
 player  → play + ##er
 ```
+
 The vocabulary becomes reusable instead of containing every complete word.
 
 #### Handling Unknown Words :
+
 One advantage of WordPiece is its ability to break unfamiliar words into smaller pieces.
 
 For example, depending on the learned vocabulary:
+
 ```text
 "unhappiness"
         ↓
 ["un", "##happi", "##ness"]
 ```
+
 If the tokenizer cannot represent a word using its available subwords, it may produce a special unknown token:
+
 ```text
 [UNK]
 ```
+
 So WordPiece does not guarantee that every possible string can always be represented.
+
+### Implementing WordPiece
+
+Now, let's see how the WordPiece algorithm works in practice.
+The implementation we are going to see is only for learning and understanding the concept. Like BPE, it is a simple educational example and is not suitable for processing a large dataset or corpus.
+
+```json
+corpus = [
+    "Artificial intelligence is changing the world.",
+    "Language models understand and generate text.",
+    "Large language models are trained on massive datasets.",
+    "Tokenization converts text into smaller tokens.",
+]
+```
+
+First, we need to pre-tokenize the corpus into words. Since we are replicating a WordPiece tokenizer (like BERT), we will use the bert-base-cased tokenizer for the pre-tokenization:
+
+```python
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+```
+
+Then we compute the frequencies of each word in the corpus as we do the pre-tokenization:
+
+```python
+from collections import defaultdict
+
+word_freqs = defaultdict(int)
+for text in corpus:
+    words_with_offsets = tokenizer.backend_tokenizer.pre_tokenizer.pre_tokenize_str(text)
+    new_words = [word for word, offset in words_with_offsets]
+    for word in new_words:
+        word_freqs[word] += 1
+
+word_freqs
+```
+
+```json
+defaultdict(
+    int,
+    {
+        'Artificial': 1,
+        'intelligence': 1,
+        'is': 1,
+        'changing': 1,
+        'the': 1,
+        'world': 1,
+        '.': 4,
+        'Language': 1,
+        'models': 2,
+        'understand': 1,
+        'and': 1,
+        'generate': 1,
+        'text': 2,
+        'Large': 1,
+        'are': 1,
+        'trained': 1,
+        'on': 1,
+        'massive': 1,
+        'datasets': 1,
+        'Tokenization': 1,
+        'converts': 1,
+        'into': 1,
+        'smaller': 1,
+        'tokens': 1
+    }
+)
+```
+As we saw before, the alphabet is the unique set composed of all the first letters of words, and all the other letters that appear in words prefixed by `##`:
+```json
+[
+    '##a', '##b', '##c', '##d', '##e', '##f', '##g',
+    '##h', '##i', '##j', '##k', '##l', '##m', '##n',
+    '##o', '##r', '##s', '##t', '##u', '##v', '##w',
+    '##x', '##y', '##z',
+    '.', 
+    'A', 'L', 'T',
+
+    'a', 'c', 'd', 'e', 'g', 'h', 'i', 'l', 'm',
+    'n', 'o', 'r', 's', 't', 'u', 'v', 'w', 'y'
+]
+```
+
 
 ### Key Takeaway
 
 > **WordPiece is a subword tokenization algorithm that builds a vocabulary of reusable word pieces and represents words as combinations of those pieces.**
-
