@@ -76,3 +76,22 @@ Because computers only understand math and logic (ones and zeros), they can't fe
 >  </p>
 ></p>
 
+Let's go one step deeper into the language of LLMs. Here is where things get really interesting.
+
+**Imagine I say:**  `I went to the bank to deposit money.`
+
+**Now I say:** `I sat near the bank and watched the river.`
+
+The word `bank` is exactly the same in both sentences. But its meaning is completely different. In the first sentence, ***bank = financial institution*** and in second sentence, ***bank = side of a river***. 
+<p align="center">
+  <a href="./images/bank-story.png">
+    <img 
+      src="./images/bank-story.png" 
+      width="600"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Visual</em>
+  </p>
+</p>
