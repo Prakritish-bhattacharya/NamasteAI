@@ -194,3 +194,45 @@ Same Token
 ```
 
 > **The token gives the model the identity of the word, but the surrounding context helps determine its meaning.**
+
+So the model isn't asking **"What does the token ID `4217` mean?"** Instead, it is effectively learning **"What does this token mean given everything around it?"** That's a much more powerful question.
+
+And this is where **Embeddings** become important. Remember our earlier discussion about vectors. A token can be represented using a vector:
+```text
+bank
+ ↓
+[0.21, -0.43, 0.71, 0.18, ...]
+```
+But when the model processes an entire sentence, it uses the surrounding context to build a richer representation.
+
+**Conceptually:**
+
+```text
+"I deposited money in the bank."
+              ↓
+        [financial context]
+              ↓
+        bank representation
+```
+
+<p align="center">versus</p>
+
+```text
+"I sat beside the river bank."
+              ↓
+          [river context]
+              ↓
+        bank representation
+```
+
+So:
+```text
+bank + financial context
+          !=
+bank + river context
+```
+
+This is the foundation of contextual representations. And this leads us directly to one of the most important ideas in modern NLP:
+>**A word does not have to carry its complete meaning by itself. Its surrounding context helps determine what it means.**
+
+That's exactly why the journey from Token IDs → Embeddings → Contextual Embeddings is so important. And now we are ready to go one level deeper: how does the model actually combine all those surrounding tokens to construct that contextual meaning?
