@@ -354,4 +354,10 @@ There are many technics, but we will talk about some common algorithms.
 >Each food gets its own unique position in the vector.
 >
 >> **Important:** The numbers `1` and `0` only indicate >whether a particular category is present. They do **not** >represent similarity or meaning between the categories.
+>
+>**simple Python code example of One-Hot-Encoding**
+>
+>👉&nbsp;&nbsp;&nbsp;&nbsp;[One-Hot-Encoding](./Google-colab/One_Hot_Encoding.ipynb)
+>[![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/One_Hot_Encoding.ipynb)
+>
 
