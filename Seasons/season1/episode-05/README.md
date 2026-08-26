@@ -95,3 +95,102 @@ The word `bank` is exactly the same in both sentences. But its meaning is comple
     <em>Visual</em>
   </p>
 </p>
+
+**So here is the mystery:**
+
+How does an AI model figure out that the same word means different things depending on the sentence?
+This is one of the key problems NLP and modern language models are designed to solve. We already learned about tokenization and token IDs. Suppose the tokenizer gives us uniques IDs **Dog** represented with `8123`, **Grapes** with `8521` and **Elephant** with `17234`. The numerical distance between these IDs tells us nothing about their meaning. 
+**Remember this: Token ID = identity, not meaning.** And this is an extremely important distinction.
+
+__So Where Does Meaning Come From?__ 
+
+Now comes the interesting part.The model doesn't try to understand the meaning of `8123`. Instead, that token ID is used to look up a learned numerical representation. 👇
+<p align="center">
+  <a href="./images/embedding.png">
+    <img 
+      src="./images/embedding.png" 
+      height="300" width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Embedding Visual</em>
+  </p>
+</p>
+
+That final vector is where the interesting information begins to appear.But even that isn't the whole story. Because now we have another mystery.
+
+### Let's return to our bank example.
+
+```text
+Sentence 1:
+"I deposited money in the bank."
+
+Sentence 2:
+"I sat beside the river bank."
+```
+The tokenizer might produce a token for `bank` in both sentences. So we could have `bank--> same token ID`. Yet the meaning is different. How can the model distinguish them?
+> The answer is:
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Context**
+>
+
+The model doesn't look at the word bank in isolation. It looks at the words surrounding it.
+
+```text
+"I deposited money in the bank."
+
+                    bank
+                     ↑
+           ┌─────────┼─────────┐
+           │         │         │
+       deposited    money      the
+```
+The surrounding words strongly suggest:
+```text
+bank + deposited + money
+              ↓
+       financial institution
+```
+Here, **"bank"** means a place where we deposit or manage money.
+
+Now look at:
+```text
+"I sat beside the river bank."
+
+                    bank
+                     ↑
+           ┌─────────┼─────────┐
+           │         │         │
+          river     beside      the
+```
+
+The surrounding words suggest:
+
+```text
+bank + river + beside
+              ↓
+         river bank
+```
+Here, **"bank"** means the **side of a river**.
+
+The word **"bank"** itself has not changed.
+
+What changes is the **context around the word**.
+
+```text
+Same Token
+    │
+    ▼
+  "bank"
+    │
+    ├── deposited + money
+    │         ↓
+    │   Financial Institution
+    │
+    └── river + beside
+              ↓
+          River Bank
+```
+
+> **The token gives the model the identity of the word, but the surrounding context helps determine its meaning.**
