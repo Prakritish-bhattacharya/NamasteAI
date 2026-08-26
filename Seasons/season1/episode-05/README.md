@@ -236,3 +236,51 @@ This is the foundation of contextual representations. And this leads us directly
 >**A word does not have to carry its complete meaning by itself. Its surrounding context helps determine what it means.**
 
 That's exactly why the journey from Token IDs → Embeddings → Contextual Embeddings is so important. And now we are ready to go one level deeper: how does the model actually combine all those surrounding tokens to construct that contextual meaning?
+
+---
+
+# **Vectorization**
+
+It’s the process of converting information into numerical vectors. It’s like an array of numbers.
+>*"Vectorization in large language models is the process of turning words, sentences, or images into long lists of numbers so that a computer can understand their meanings and relationships."*
+
+Instead of trying what letters actually mean,vectorization turns every word, sentence, or document into a secret code of numbers (**called a vector**).
+
+Think of it like plotting points on a giant map:
+- Words with similar meanings live in the same neighborhood.
+The numbers for `"Dog"` and `"Puppy"` will sit right next to each other on the map.
+- Words with different meanings live far apart.
+The numbers for `"Dog"` will sit very far away from `"Airplane"`.
+- Relationships turn into simple directions.
+If you take the numbers for `"King"`, subtract `"Man"`, and add `"Woman"`, the map points straight to `"Queen"`.
+<p align="center">
+  <a href="./images/3D-ploting.png">
+    <img 
+      src="./images/3D-ploting.png" 
+      height="400" width="600"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Visuals</em>
+  </p>
+</p>
+
+>**💡 Why Does This Matter?**
+>
+>By converting human text into these numerical codes, computers don't actually need to "read" like we do. They just do math on the map!
+>
+>This simple translation process powers the everyday AI features we rely on:
+>
+>- **Translation apps** matching sentences across different languages.
+>
+>- **Search engines** understanding what you mean, not just exact words you typed.
+>
+>- **Spam filters** spotting suspicious emails based on their overall patterns.
+>
+>In short, vectorization is how we translate human language into a numerical map that machines can navigate instantly.
+
+**simple Python code example that converts sentences into vectors.**
+
+👉&nbsp;&nbsp;&nbsp;&nbsp;[Sentences-convert-to-vector](./Google-colab/sentence-convert-to-vector.ipynb)
+[![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/sentence-convert-to-vector.ipynb)
