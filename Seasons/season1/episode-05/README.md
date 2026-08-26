@@ -284,3 +284,74 @@ If you take the numbers for `"King"`, subtract `"Man"`, and add `"Woman"`, the m
 
 👉&nbsp;&nbsp;&nbsp;&nbsp;[Sentences-convert-to-vector](./Google-colab/sentence-convert-to-vector.ipynb)
 [![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/sentence-convert-to-vector.ipynb)
+
+Vectors are essentially arrays of numbers that represent various features of the text. These arrays can be of different dimensions:
+
+- **1D Vectors:** Represent individual words (e.g., word embeddings).
+
+- **2D Vectors:** Represent sequences of words, such as sentences or documents (e.g., sentence embeddings).
+
+- **Multi-Dimensional Vectors:** Can represent more complex structures and relationships, potentially involving higher-dimensional spaces.
+
+When applying different vectorization techniques, the resulting vectors will vary depending on the method used. Each technique produces vectors with unique characteristics and ranges of values. For example, some techniques yield binary values (0 or 1), while others produce continuous values between 0 and 1. Below, we’ll see examples of vector outputs for BoW technique
+
+<p align="center">
+  <a href="./images/1D-2D-3D-vector.png">
+    <img 
+      src="./images/1D-2D-3D-vector.png" 
+      height="400" width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Visuals</em>
+  </p>
+</p>
+
+## **Vectorization Techniques in NLP**
+
+There are many technics, but we will talk about some common algorithms.
+
+**1. One-Hot Encoding:** 
+>One-Hot Encoding is a data preprocessing technique used to convert categorical data into a numerical format that machine learning models can understand.
+>
+>Imagine you're taking a quick survey at a restaurant, and it asks for your favorite meal: Pizza, Burger, or Tacos.
+>If a computer were filling out this form, it would run into a problem. Computers don't understand words, they only understand numbers.
+>
+>A quick fix might be assigning each meal a number:
+>- Pizza = 1
+>- Burger = 2
+>- Tacos = 3
+>
+>While that gives the computer numbers to work with, it accidentally creates a huge misunderstanding. The computer looks at those numbers and thinks: "Ah, **Tacos (3)** are three times better than **Pizza (1)**, and **Burgers (2)** are somewhere in the middle!" It assumes there is a ranking or hierarchy, even though you were just listing equal choices.
+>
+>To fix this, we use **One-Hot Encoding**.
+>
+>**🚨 How It Works: The Light Switch Method**
+>
+>Instead of using numbers to rank items, One-Hot Encoding turns each category into a simple On/Off switch (1 for "Yes", 0 for "No").
+> 
+>It creates a dedicated column for every choice:
+>
+>
+>| Customer Choice | Is Pizza? | Is Burger? | Is Tacos? |
+>|---|---:|---:|---:|
+>| **Pizza** | 1 | 0 | 0 |
+>| **Burger** | 0 | 1 | 0 |
+>| **Tacos** | 0 | 0 | 1 |
+>### Vector Representation
+>
+>```text
+>Pizza  → [1, 0, 0]
+>Burger → [0, 1, 0]
+>Tacos  → [0, 0, 1]
+>```
+>Here:
+>
+>- `1` means **Yes / Present**
+>- `0` means **No / Absent**
+>
+>Each food gets its own unique position in the vector.
+>
+>> **Important:** The numbers `1` and `0` only indicate >whether a particular category is present. They do **not** >represent similarity or meaning between the categories.
+
