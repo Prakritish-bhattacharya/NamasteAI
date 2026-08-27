@@ -361,3 +361,30 @@ There are many technics, but we will talk about some common algorithms.
 >[![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/One_Hot_Encoding.ipynb)
 >
 
+**2. Bag of Words (BoW):** 
+
+>In NLP, text data must be converted into numerical form so >that machine learning algorithms can process it. The Bag of >Words (BoW) model is a simple and commonly used method for **Converts text into a collection of words**, **Counts how often each word appears in the text**, **Ignores order of word and grammar , mainly focusing on frequency**.
+>
+>***In other way we can say that:***
+> 
+>The-bag-of-words model is a simple way to convert words to numerical representation by conceptualizing a document as a `“bag”` of words and noting the `frequency of each word`. Documents can then be embedded and fed into machine learning algorithms.
+>
+> **🚨 How Bag-of-Words Models Work**
+>
+>Imagine taking an entire article, cutting out every single word with a pair of scissors, and throwing them all into a giant **grocery bag**. Once inside the bag, the sentence order is completely lost. You don't know which word came first or how sentences were built. All you have is a big pile of loose words. If a computer wants to figure out what that document is about, it simply dumps out the bag and counts how many times each word appears.
+>
+>*🏷️ The Counting Checklist:*
+>
+>To turn this bag into numbers a machine can process, the computer creates a master checklist (**a vocabulary**) of every word it knows-say, 1,000 words total. For any document you hand it, the computer goes down its 1,000-word checklist and fills in the tally:
+> - `"Coffee"`: 4
+> - `"Morning"`: 2
+> - `"Rocket"`: 0
+> - `"Space"`: 0
+>
+>That final checklist of 1,000 counts becomes the document's numerical fingerprint (its vector).
+>
+>**💡 Why Use It?**
+>
+> - **It’s Super Simple:** It takes seconds to set up and requires very little computing power.
+> - **Great for Basic Tasks:** If a document contains the words **"free"**, **"money"**, and **"click"**, a spam filter can easily flag it as spam just by counting those keywords.
+>
