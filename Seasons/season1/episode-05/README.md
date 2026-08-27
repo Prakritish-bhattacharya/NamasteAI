@@ -363,7 +363,7 @@ There are many technics, but we will talk about some common algorithms.
 
 **2. Bag of Words (BoW):** 
 
->In NLP, text data must be converted into numerical form so >that machine learning algorithms can process it. The Bag of >Words (BoW) model is a simple and commonly used method for **Converts text into a collection of words**, **Counts how often each word appears in the text**, **Ignores order of word and grammar , mainly focusing on frequency**.
+>In NLP, text data must be converted into numerical form so >that machine learning algorithms can process it. The Bag of Words (BoW) model is a simple and commonly used method for **Converts text into a collection of words**, **Counts how often each word appears in the text**, **Ignores order of word and grammar , mainly focusing on frequency**.
 >
 >***In other way we can say that:***
 > 
@@ -388,3 +388,7 @@ There are many technics, but we will talk about some common algorithms.
 > - **It’s Super Simple:** It takes seconds to set up and requires very little computing power.
 > - **Great for Basic Tasks:** If a document contains the words **"free"**, **"money"**, and **"click"**, a spam filter can easily flag it as spam just by counting those keywords.
 >
+> **simple Python code example of Bag-of-Words**
+>
+>👉&nbsp;&nbsp;&nbsp;&nbsp;[Bag-of-Words](./Google-colab/Bag_of_Words.ipynb)
+>[![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/Bag_of_Words.ipynb)
