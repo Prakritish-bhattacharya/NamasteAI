@@ -363,7 +363,7 @@ There are many technics, but we will talk about some common algorithms.
 
 **2. Bag of Words (BoW):** 
 
->In NLP, text data must be converted into numerical form so >that machine learning algorithms can process it. The Bag of Words (BoW) model is a simple and commonly used method for **Converts text into a collection of words**, **Counts how often each word appears in the text**, **Ignores order of word and grammar , mainly focusing on frequency**.
+>In NLP, text data must be converted into numerical form so that machine learning algorithms can process it. The Bag of Words (BoW) model is a simple and commonly used method for **Converts text into a collection of words**, **Counts how often each word appears in the text**, **Ignores order of word and grammar , mainly focusing on frequency**.
 >
 >***In other way we can say that:***
 > 
@@ -392,3 +392,12 @@ There are many technics, but we will talk about some common algorithms.
 >
 >👉&nbsp;&nbsp;&nbsp;&nbsp;[Bag-of-Words](./Google-colab/Bag_of_Words.ipynb)
 >[![Open In Colab](https://img.shields.io/badge/Open%20In-Colab-F9AB00?logo=googlecolab&logoColor=white)](./Google-colab/Bag_of_Words.ipynb)
+>
+>### TF-IDF ( Term Frequency-Inverse Document Frequency)
+>
+>A key issue with bag-of-words is that simply tracking the frequency of words can lead to meaningless words — words like “a,” “some” and “the” — gaining too much influence over a model. That’s where Term Frequency-Inverse Document Frequency (TF-IDF) comes into play. This approach consists of two components: 
+> - **Term Frequency:** Notes the frequency of a word in one document. 
+>
+> - **Inverse Document Frequency:** Notes the rareness of a word across all documents and downplays words that occur frequently across all documents. 
+>
+> [For more resources](https://builtin.com/articles/tf-idf)
