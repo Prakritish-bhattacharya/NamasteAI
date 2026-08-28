@@ -400,4 +400,4 @@ There are many technics, but we will talk about some common algorithms.
 >
 > - **Inverse Document Frequency:** Notes the rareness of a word across all documents and downplays words that occur frequently across all documents. 
 >
-> [For more resources](https://builtin.com/articles/tf-idf)
+> [For more resources](https://builtin.com/articles/tf-idf) 
