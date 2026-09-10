@@ -596,19 +596,19 @@ $$
 
 Then:
 
-$$
-A\cdot B
+```math
+A \cdot B
 =
 (1)(4)+(2)(5)+(3)(6)
-$$
+```
 
-$$
+```math
 =4+10+18
-$$
+```
 
-$$
+```math
 \boxed{32}
-$$
+```
 
 ---
 
@@ -616,13 +616,13 @@ $$
 
 The magnitude or length of a vector is:
 
-$$
+```math
 \boxed{
 \|A\|
 =
-\sqrt{\sum_{i=1}^{n}A_i^2}
+\sqrt{\sum_{i=1}^{n} A_i^2}
 }
-$$
+```
 
 For:
 
@@ -632,16 +632,14 @@ $$
 
 we get:
 
-$$
+```math
+\begin{aligned}
 \|A\|
-=
-\sqrt{1^2+2^2+3^2}
-$$
-
-$$
-=
-\sqrt{1+4+9}
-$$
+&= \sqrt{1^2 + 2^2 + 3^2} \\
+&= \sqrt{1 + 4 + 9} \\
+&= \sqrt{14}
+\end{aligned}
+```
 
 $$
 =\sqrt{14}
