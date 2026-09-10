@@ -448,3 +448,1070 @@ Semantic similarity in embeddings is the measure of how close two pieces of text
 
 
 
+# 📐 Cosine Similarity
+
+> **How similar are two vectors?**
+>
+> Instead of asking *"How far apart are these vectors?"*, cosine similarity asks:
+>
+> **"How similar is their direction?"**
+
+Cosine Similarity is one of the most important concepts in:
+
+- 🤖 Machine Learning
+- 🧠 Natural Language Processing
+- 🔎 Semantic Search
+- 📚 Information Retrieval
+- 🎯 Recommendation Systems
+- 🧬 Embeddings
+- 🗄️ Vector Databases
+
+Mathematically, cosine similarity is the **normalized dot product** of two vectors.
+
+---
+
+# 🧭 1. Intuition First
+
+Imagine two vectors starting from the same point:
+
+```text
+                    B
+                   ↗
+                  /
+                 /
+                / θ
+               /
+              /
+O────────────→ A
+```
+
+The angle between them is:
+
+$$
+\theta
+$$
+
+Cosine similarity measures:
+
+$$
+\boxed{\cos(\theta)}
+$$
+
+So the fundamental idea is:
+
+> **Smaller angle → more similar direction**
+
+---
+
+# 📊 2. Understanding the Score
+
+For non-zero vectors:
+
+| Cosine Similarity | Meaning |
+|---:|---|
+| `+1` | Same direction |
+| `+0.8` | Very similar direction |
+| `+0.5` | Moderately similar |
+| `0` | Perpendicular |
+| `-0.5` | Opposite tendency |
+| `-1` | Exactly opposite direction |
+
+Mathematically:
+
+$$
+-1\leq \cos(\theta)\leq1
+$$
+
+⚠️ In many NLP applications, vectors such as TF-IDF representations are non-negative, so scores commonly fall between `0` and `1`. But general real-valued vectors can produce negative cosine similarity.
+
+---
+
+# 🧮 3. The Main Formula
+
+Suppose we have two vectors:
+
+$$
+\mathbf{A}=(A_1,A_2,\dots,A_n)
+$$
+
+and
+
+$$
+\mathbf{B}=(B_1,B_2,\dots,B_n)
+$$
+
+Then:
+
+$$
+\boxed{
+\text{Cosine Similarity}
+=
+\frac{\mathbf{A}\cdot\mathbf{B}}
+{\|\mathbf{A}\|\|\mathbf{B}\|}
+}
+$$
+
+This formula has **three important parts**:
+
+```text
+              A · B
+Cosine = ───────────────
+             ||A|| ||B||
+
+           ↓       ↓
+       Dot Product  Magnitudes
+```
+
+---
+
+# 🔢 4. Breaking Down the Formula
+
+## 4.1 Dot Product
+
+For:
+
+$$
+A=(A_1,A_2,\dots,A_n)
+$$
+
+$$
+B=(B_1,B_2,\dots,B_n)
+$$
+
+the dot product is:
+
+$$
+\boxed{
+A\cdot B
+=
+\sum_{i=1}^{n}A_iB_i
+}
+$$
+
+For example:
+
+$$
+A=(1,2,3)
+$$
+
+$$
+B=(4,5,6)
+$$
+
+Then:
+
+$$
+A\cdot B
+=
+(1)(4)+(2)(5)+(3)(6)
+$$
+
+$$
+=4+10+18
+$$
+
+$$
+\boxed{32}
+$$
+
+---
+
+# 📏 5. Vector Magnitude
+
+The magnitude or length of a vector is:
+
+$$
+\boxed{
+\|A\|
+=
+\sqrt{\sum_{i=1}^{n}A_i^2}
+}
+$$
+
+For:
+
+$$
+A=(1,2,3)
+$$
+
+we get:
+
+$$
+\|A\|
+=
+\sqrt{1^2+2^2+3^2}
+$$
+
+$$
+=
+\sqrt{1+4+9}
+$$
+
+$$
+=\sqrt{14}
+$$
+
+---
+
+# 🎯 6. Complete Mathematical Example
+
+Let's calculate cosine similarity between:
+
+$$
+A=(1,2,3)
+$$
+
+and:
+
+$$
+B=(4,5,6)
+$$
+
+---
+
+## Step 1️⃣ — Calculate Dot Product
+
+$$
+A\cdot B
+=
+(1)(4)+(2)(5)+(3)(6)
+$$
+
+$$
+=4+10+18
+$$
+
+$$
+\boxed{A\cdot B=32}
+$$
+
+---
+
+## Step 2️⃣ — Calculate Magnitude of A
+
+$$
+\|A\|
+=
+\sqrt{1^2+2^2+3^2}
+$$
+
+$$
+=
+\sqrt{14}
+$$
+
+---
+
+## Step 3️⃣ — Calculate Magnitude of B
+
+$$
+\|B\|
+=
+\sqrt{4^2+5^2+6^2}
+$$
+
+$$
+=
+\sqrt{16+25+36}
+$$
+
+$$
+=
+\sqrt{77}
+$$
+
+---
+
+## Step 4️⃣ — Substitute into Formula
+
+$$
+\text{Cosine Similarity}
+=
+\frac{32}
+{\sqrt{14}\sqrt{77}}
+$$
+
+Since:
+
+$$
+\sqrt{14}\sqrt{77}
+=
+\sqrt{1078}
+$$
+
+we get:
+
+$$
+\text{Cosine Similarity}
+=
+\frac{32}{\sqrt{1078}}
+$$
+
+$$
+\boxed{
+\text{Cosine Similarity}\approx0.9746
+}
+$$
+
+---
+
+# 🧠 7. What Does 0.9746 Mean?
+
+We obtained:
+
+$$
+0.9746
+$$
+
+This is very close to:
+
+$$
+1
+$$
+
+Therefore, vectors `A` and `B` point in **very similar directions**.
+
+```text
+Similarity
+
+-1          0          +1
+│-----------│-----------│
+Opposite    ⟂        Same Direction
+                         ↑
+                       0.9746
+```
+
+---
+
+# 🔥 8. Why Normalize?
+
+Consider:
+
+$$
+A=(1,2)
+$$
+
+and:
+
+$$
+B=(2,4)
+$$
+
+Notice:
+
+$$
+B=2A
+$$
+
+So:
+
+```text
+A = ───────→
+
+B = ────────────────→
+```
+
+Their magnitudes are different.
+
+But their **directions are identical**.
+
+Therefore:
+
+$$
+\boxed{
+\text{Cosine Similarity}=1
+}
+$$
+
+This is the major intuition behind cosine similarity:
+
+> **Magnitude can change while direction remains the same.**
+
+---
+
+# 💯 9. Perfect Similarity
+
+Consider:
+
+$$
+A=(1,2,3)
+$$
+
+$$
+B=(2,4,6)
+$$
+
+Since:
+
+$$
+B=2A
+$$
+
+the vectors point in exactly the same direction.
+
+Therefore:
+
+$$
+\boxed{\cos(\theta)=1}
+$$
+
+Let's verify mathematically.
+
+### Dot Product
+
+$$
+A\cdot B
+=
+(1)(2)+(2)(4)+(3)(6)
+$$
+
+$$
+=2+8+18
+$$
+
+$$
+=28
+$$
+
+### Magnitudes
+
+$$
+\|A\|=\sqrt{14}
+$$
+
+$$
+\|B\|
+=
+\sqrt{2^2+4^2+6^2}
+$$
+
+$$
+=
+\sqrt{56}
+=
+2\sqrt{14}
+$$
+
+Therefore:
+
+$$
+\text{Cosine Similarity}
+=
+\frac{28}
+{\sqrt{14}(2\sqrt{14})}
+$$
+
+$$
+=
+\frac{28}{28}
+$$
+
+$$
+\boxed{1}
+$$
+
+---
+
+# 🚫 10. Perpendicular Vectors
+
+Consider:
+
+$$
+A=(1,0)
+$$
+
+and:
+
+$$
+B=(0,1)
+$$
+
+Calculate the dot product:
+
+$$
+A\cdot B
+=
+(1)(0)+(0)(1)
+$$
+
+$$
+=0
+$$
+
+Therefore:
+
+$$
+\text{Cosine Similarity}
+=
+\frac{0}{\|A\|\|B\|}
+$$
+
+$$
+\boxed{0}
+$$
+
+The angle between them is:
+
+$$
+\theta=90^\circ
+$$
+
+and:
+
+$$
+\cos(90^\circ)=0
+$$
+
+---
+
+# 🔄 11. Opposite Vectors
+
+Consider:
+
+$$
+A=(1,2)
+$$
+
+and:
+
+$$
+B=(-1,-2)
+$$
+
+Notice:
+
+$$
+B=-A
+$$
+
+Calculate:
+
+$$
+A\cdot B
+=
+(1)(-1)+(2)(-2)
+$$
+
+$$
+=-1-4
+$$
+
+$$
+=-5
+$$
+
+Magnitudes:
+
+$$
+\|A\|=\sqrt5
+$$
+
+$$
+\|B\|=\sqrt5
+$$
+
+Therefore:
+
+$$
+\text{Cosine Similarity}
+=
+\frac{-5}{\sqrt5\sqrt5}
+$$
+
+$$
+=
+\frac{-5}{5}
+$$
+
+$$
+\boxed{-1}
+$$
+
+So:
+
+> **Opposite direction → cosine similarity = -1**
+
+---
+
+# 🧩 12. The Three Cases You MUST Remember
+
+```text
+                 COSINE SIMILARITY
+                        │
+          ┌─────────────┼─────────────┐
+          ↓             ↓             ↓
+        +1              0            -1
+          │             │             │
+          ↓             ↓             ↓
+    Same Direction   90° Angle   Opposite Direction
+```
+
+Mathematically:
+
+$$
+\boxed{
+\begin{aligned}
+\theta=0^\circ   &\Rightarrow \cos\theta=1\\
+\theta=90^\circ  &\Rightarrow \cos\theta=0\\
+\theta=180^\circ &\Rightarrow \cos\theta=-1
+\end{aligned}
+}
+$$
+
+---
+
+# 🧠 13. Cosine Similarity in NLP
+
+This is where cosine similarity becomes extremely useful.
+
+Suppose we have:
+
+```text
+Sentence 1:
+"I love machine learning."
+
+Sentence 2:
+"I enjoy artificial intelligence."
+```
+
+A model can convert each sentence into an embedding:
+
+```text
+Sentence 1
+     ↓
+[0.21, 0.82, -0.13, 0.45, ...]
+     
+Sentence 2
+     ↓
+[0.19, 0.79, -0.11, 0.48, ...]
+```
+
+Now we calculate:
+
+$$
+\text{Cosine Similarity}(E_1,E_2)
+$$
+
+If the vectors point in similar directions, the similarity score will be high.
+
+This basic operation is widely used for comparing vector representations, including document vectors.
+
+---
+
+# 🔎 14. Semantic Search
+
+Imagine searching:
+
+```text
+"How can I reset my password?"
+```
+
+The database may contain:
+
+```text
+Document 1:
+"How do I change my password?"
+
+Document 2:
+"How do I make pasta?"
+
+Document 3:
+"Best places to travel in India"
+```
+
+Convert everything into vectors:
+
+```text
+Query
+  ↓
+Embedding
+  ↓
+Compare with document embeddings
+  ↓
+Cosine Similarity
+  ↓
+Rank results
+```
+
+Example:
+
+| Document | Cosine Similarity |
+|---|---:|
+| Password reset | `0.94` |
+| Pasta recipe | `0.21` |
+| Travel guide | `0.08` |
+
+The system can rank the password document first.
+
+---
+
+# 📚 15. Cosine Similarity and TF-IDF
+
+Cosine similarity is commonly used with document representations such as **TF-IDF vectors**.
+
+Suppose:
+
+```text
+Vocabulary:
+
+[Python, Java, Database, Machine Learning]
+```
+
+Document A:
+
+$$
+A=(3,1,0,2)
+$$
+
+Document B:
+
+$$
+B=(2,1,0,3)
+$$
+
+Cosine similarity lets us compare their **direction in feature space**.
+
+This is one of the foundations of the classical **Vector Space Model** used in information retrieval.
+
+---
+
+# ⚔️ 16. Cosine Similarity vs Euclidean Distance
+
+Consider:
+
+$$
+A=(1,2)
+$$
+
+$$
+B=(10,20)
+$$
+
+The vectors have very different magnitudes.
+
+But:
+
+$$
+B=10A
+$$
+
+Therefore:
+
+$$
+\boxed{\text{Cosine Similarity}=1}
+$$
+
+because their directions are identical.
+
+However, Euclidean distance is:
+
+$$
+d(A,B)
+=
+\sqrt{(10-1)^2+(20-2)^2}
+$$
+
+$$
+=
+\sqrt{81+324}
+$$
+
+$$
+=\sqrt{405}
+$$
+
+which is large.
+
+### Key difference:
+
+| Metric | Focus |
+|---|---|
+| **Cosine Similarity** | Direction / angle |
+| **Euclidean Distance** | Physical distance |
+| **Dot Product** | Alignment + magnitude |
+
+---
+
+
+
+# 🟠 17.  Think Before Calculating
+
+Given:
+
+$$
+A=(3,6,9)
+$$
+
+$$
+B=(1,2,3)
+$$
+
+Can you determine cosine similarity **without doing the full calculation?**
+
+### Solution
+
+Observe:
+
+$$
+A=3B
+$$
+
+Therefore, both vectors point in exactly the same direction.
+
+Hence:
+
+$$
+\boxed{\text{Cosine Similarity}=1}
+$$
+
+### 💡 Lesson
+
+Before calculating, **look for proportional vectors**.
+
+It can save you a lot of mathematical work.
+
+---
+
+
+### Q1. What is cosine similarity?
+
+Cosine similarity measures the cosine of the angle between two non-zero vectors:
+
+$$
+\boxed{
+\frac{A\cdot B}{\|A\|\|B\|}
+}
+$$
+
+---
+
+### Q2. Why is it called "cosine" similarity?
+
+Because the normalized dot product is equal to:
+
+$$
+\cos(\theta)
+$$
+
+where $\theta$ is the angle between the vectors.
+
+---
+
+### Q3. What does cosine similarity = 1 mean?
+
+The vectors point in exactly the same direction.
+
+---
+
+### Q4. What does cosine similarity = 0 mean?
+
+The vectors are perpendicular.
+
+---
+
+### Q5. What does cosine similarity = -1 mean?
+
+The vectors point in exactly opposite directions.
+
+---
+
+### Q6. Why is cosine similarity popular in NLP?
+
+Because text documents and embeddings can be represented as vectors, and cosine similarity provides a way to compare their directional alignment. It is commonly used with TF-IDF document vectors and other vector representations.
+
+---
+
+### Q7. What happens with a zero vector?
+
+Cosine similarity is undefined because:
+
+$$
+\|A\|=0
+$$
+
+would make the denominator zero.
+
+---
+
+# 💻 23. Python Implementation
+
+```python
+import math
+
+
+def cosine_similarity(A, B):
+
+    # Step 1: Dot Product
+    dot_product = sum(a * b for a, b in zip(A, B))
+
+    # Step 2: Magnitude of A
+    magnitude_A = math.sqrt(
+        sum(a * a for a in A)
+    )
+
+    # Step 3: Magnitude of B
+    magnitude_B = math.sqrt(
+        sum(b * b for b in B)
+    )
+
+    # Zero-vector check
+    if magnitude_A == 0 or magnitude_B == 0:
+        raise ValueError(
+            "Cosine similarity is undefined for zero vectors."
+        )
+
+    # Step 4: Cosine Similarity
+    return dot_product / (
+        magnitude_A * magnitude_B
+    )
+
+
+A = [1, 2, 3]
+B = [4, 5, 6]
+
+result = cosine_similarity(A, B)
+
+print(result)
+```
+
+Output:
+
+```text
+0.974631846
+```
+
+---
+
+# 🧠 24. The 4-Step Mental Model
+
+Whenever you get a cosine similarity question in an interview:
+
+```text
+        TWO VECTORS
+             │
+             ↓
+      ┌──────────────┐
+      │ Dot Product  │
+      └──────┬───────┘
+             ↓
+      ┌──────────────┐
+      │ Magnitude A  │
+      └──────┬───────┘
+             ↓
+      ┌──────────────┐
+      │ Magnitude B  │
+      └──────┬───────┘
+             ↓
+      ┌──────────────┐
+      │ Divide Them  │
+      └──────┬───────┘
+             ↓
+      COSINE SCORE
+```
+
+Remember:
+
+$$
+\boxed{
+\text{Cosine Similarity}
+=
+\frac{\text{Dot Product}}
+{\text{Magnitude A}\times\text{Magnitude B}}
+}
+$$
+
+
+
+
+
+---
+
+# 🎯 Final Takeaway
+
+The entire concept can be compressed into one sentence:
+
+> **Cosine similarity measures how closely two vectors point in the same direction.**
+
+And the equation you should remember is:
+
+$$
+\boxed{
+\text{Cosine Similarity}
+=
+\frac{\mathbf{A}\cdot\mathbf{B}}
+{\|\mathbf{A}\|\|\mathbf{B}\|}
+}
+$$
+
+The three most important cases:
+
+$$
+\boxed{
+\begin{aligned}
+1   &\rightarrow \text{Same direction}\\
+0   &\rightarrow \text{Perpendicular}\\
+-1  &\rightarrow \text{Opposite direction}
+\end{aligned}
+}
+$$
+
+From **vectors → embeddings → semantic similarity → search**, cosine similarity is one of the fundamental mathematical building blocks behind modern ML/NLP systems.
+
+---
+
+
+
+## 💻 Python
+
+```python
+import math
+
+
+def cosine_similarity(A, B):
+
+    dot_product = sum(a * b for a, b in zip(A, B))
+
+    magnitude_A = math.sqrt(
+        sum(a * a for a in A)
+    )
+
+    magnitude_B = math.sqrt(
+        sum(b * b for b in B)
+    )
+
+    if magnitude_A == 0 or magnitude_B == 0:
+        raise ValueError(
+            "Cosine similarity is undefined for zero vectors."
+        )
+
+    return dot_product / (
+        magnitude_A * magnitude_B
+    )
+
+
+A = [1, 2, 3]
+B = [4, 5, 6]
+
+print(cosine_similarity(A, B))
+```
+
+Output:
+
+```text
+0.974631846
+```
+
+---
+
+### ⭐ Remember
+
+$$
+\boxed{
+\text{Similarity}
+=
+\frac{\text{Dot Product}}
+{\text{Magnitude}_A\times\text{Magnitude}_B}
+}
+$$
+
+> **Don't just memorize the formula — understand the geometry behind it.**
