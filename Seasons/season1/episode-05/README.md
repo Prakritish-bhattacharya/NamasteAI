@@ -1509,8 +1509,11 @@ $$
 \boxed{
 \text{Similarity}
 =
-\frac{\text{Dot Product}}
-{\text{Magnitude}_A\times\text{Magnitude}_B}
+\frac{
+\text{Dot Product}
+}{
+\text{Magnitude}_A \times \text{Magnitude}_B
+}
 }
 $$
 
