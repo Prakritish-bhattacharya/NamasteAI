@@ -665,15 +665,13 @@ $$
 
 ## Step 1️⃣ — Calculate Dot Product
 
-$$
-A\cdot B
-=
-(1)(4)+(2)(5)+(3)(6)
-$$
-
-$$
-=4+10+18
-$$
+```math
+\begin{aligned}
+A \cdot B
+&= (1)(4) + (2)(5) + (3)(6) \\
+&= 4 + 10 + 18
+\end{aligned}
+```
 
 $$
 \boxed{A\cdot B=32}
@@ -683,69 +681,40 @@ $$
 
 ## Step 2️⃣ — Calculate Magnitude of A
 
-$$
+```math
+\begin{aligned}
 \|A\|
-=
-\sqrt{1^2+2^2+3^2}
-$$
-
-$$
-=
-\sqrt{14}
-$$
+&= \sqrt{1^2 + 2^2 + 3^2} \\
+&= \sqrt{14}
+\end{aligned}
+```
 
 ---
 
 ## Step 3️⃣ — Calculate Magnitude of B
 
-$$
+```math
+\begin{aligned}
 \|B\|
-=
-\sqrt{4^2+5^2+6^2}
-$$
-
-$$
-=
-\sqrt{16+25+36}
-$$
-
-$$
-=
-\sqrt{77}
-$$
+&= \sqrt{4^2 + 5^2 + 6^2} \\
+&= \sqrt{16 + 25 + 36} \\
+&= \sqrt{77}
+\end{aligned}
+```
 
 ---
 
 ## Step 4️⃣ — Substitute into Formula
 
-$$
+```math
+\begin{aligned}
 \text{Cosine Similarity}
-=
-\frac{32}
-{\sqrt{14}\sqrt{77}}
-$$
-
-Since:
-
-$$
-\sqrt{14}\sqrt{77}
-=
-\sqrt{1078}
-$$
-
-we get:
-
-$$
-\text{Cosine Similarity}
-=
-\frac{32}{\sqrt{1078}}
-$$
-
-$$
-\boxed{
-\text{Cosine Similarity}\approx0.9746
-}
-$$
+&= \frac{32}{\sqrt{14}\sqrt{77}} \\
+&= \frac{32}{\sqrt{14 \times 77}} \\
+&= \frac{32}{\sqrt{1078}} \\
+&\approx \boxed{0.9746}
+\end{aligned}
+```
 
 ---
 
@@ -853,56 +822,31 @@ Let's verify mathematically.
 
 ### Dot Product
 
-$$
-A\cdot B
-=
-(1)(2)+(2)(4)+(3)(6)
-$$
-
-$$
-=2+8+18
-$$
-
-$$
-=28
-$$
+```math
+\begin{aligned}
+A \cdot B
+&= (1)(2) + (2)(4) + (3)(6) \\
+&= 2 + 8 + 18 \\
+&= 28
+\end{aligned}
+```
 
 ### Magnitudes
 
-$$
-\|A\|=\sqrt{14}
-$$
-
-$$
+```math
+\begin{aligned}
+\|A\|
+&= \sqrt{14} \\[4pt]
 \|B\|
-=
-\sqrt{2^2+4^2+6^2}
-$$
-
-$$
-=
-\sqrt{56}
-=
-2\sqrt{14}
-$$
-
-Therefore:
-
-$$
+&= \sqrt{2^2 + 4^2 + 6^2} \\
+&= \sqrt{56} \\
+&= 2\sqrt{14} \\[6pt]
 \text{Cosine Similarity}
-=
-\frac{28}
-{\sqrt{14}(2\sqrt{14})}
-$$
-
-$$
-=
-\frac{28}{28}
-$$
-
-$$
-\boxed{1}
-$$
+&= \frac{28}{\sqrt{14}(2\sqrt{14})} \\
+&= \frac{28}{28} \\
+&= \boxed{1}
+\end{aligned}
+```
 
 ---
 
