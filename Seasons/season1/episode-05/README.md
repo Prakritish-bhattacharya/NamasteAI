@@ -578,13 +578,11 @@ $$
 
 the dot product is:
 
-$$
-\boxed{
-A\cdot B
+```math
+A \cdot B
 =
-\sum_{i=1}^{n}A_iB_i
-}
-$$
+\sum_{i=1}^{n} A_i B_i
+```
 
 For example:
 
