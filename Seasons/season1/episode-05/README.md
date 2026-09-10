@@ -1505,13 +1505,13 @@ Output:
 
 ### ⭐ Remember
 
-$$
+```math
 \boxed{
 \text{Cosine Similarity}
 =
 \frac{\mathbf{A}\cdot\mathbf{B}}
 {\|\mathbf{A}\|\,\|\mathbf{B}\|}
 }
-$$
+```
 
 > 💡 **Don't just memorize the formula — understand the geometry behind it.**
