@@ -542,13 +542,11 @@ $$
 
 Then:
 
-```Math
-\boxed{
+```math
 \text{Cosine Similarity}
 =
 \frac{\mathbf{A}\cdot\mathbf{B}}
-{\|\mathbf{A}\|\|\mathbf{B}\|}
-}
+{\|\mathbf{A}\|\,\|\mathbf{B}\|}
 ```
 
 This formula has **three important parts**:
