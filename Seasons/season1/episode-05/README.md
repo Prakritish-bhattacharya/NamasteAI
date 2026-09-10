@@ -1507,14 +1507,11 @@ Output:
 
 $$
 \boxed{
-\text{Similarity}
+\text{Cosine Similarity}
 =
-\frac{
-\text{Dot Product}
-}{
-\text{Magnitude}_A \times \text{Magnitude}_B
-}
+\frac{\mathbf{A}\cdot\mathbf{B}}
+{\|\mathbf{A}\|\,\|\mathbf{B}\|}
 }
 $$
 
-> **Don't just memorize the formula — understand the geometry behind it.**
+> 💡 **Don't just memorize the formula — understand the geometry behind it.**
