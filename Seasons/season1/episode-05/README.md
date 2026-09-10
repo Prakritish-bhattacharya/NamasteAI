@@ -401,3 +401,50 @@ There are many technics, but we will talk about some common algorithms.
 > - **Inverse Document Frequency:** Notes the rareness of a word across all documents and downplays words that occur frequently across all documents. 
 >
 > [For more resources](https://builtin.com/articles/tf-idf) 
+
+
+
+## Embeddings
+Embeddings are numerical representations of real-world data—such as words, sentences, images, or audio—stored as a list of numbers called a vector.Embeddings are the way of representing data as numerical vectors in a continuous space. They capture the meaning or relationship between data points, so that similar items are placed closer together while dissimilar ones are farther apart. This makes it easier for algorithms to work with complex data such as words, images or audio.
+- They convert categorical data into dense vectors.
+- They are widely used in natural language processing, recommender systems and computer vision.
+- These vectors help show what the objects mean and how they relate to each other.
+
+**How Embeddings Work:**
+- **Converting Data to Numbers:** Computers only understand math. Embeddings translate complex information into long lists of numbers (for example, [0.25, -0.41, 0.88])
+- **Measuring Distance:**  The distance between vectors shows how related they are. Close points mean high similarity (like "king" and "queen"), while far points mean unrelated topics (like "king" and "apple").
+- **Capturing Meaning (Semantics):**  Items with similar meanings or traits are placed close together in a mathematical space.
+
+<p align="center">
+  <a href="./images/embeddingDetails.png">
+    <img 
+      src="./images/embeddingDetails.png" 
+      width="400"
+      alt="Architecture diagram"
+    />
+  </a>
+  <p align="center">
+    <em>Embeddings</em>
+  </p>
+</p>
+
+👉&nbsp;&nbsp;&nbsp;&nbsp;[Play with Embedding Projector](https://projector.tensorflow.org/)
+[![Open In Web](https://img.shields.io/badge/Open%20In-Web-F9AB00?logo=googlecolab&logoColor=white)](https://projector.tensorflow.org/)
+
+**what is semantic similarity**
+
+Semantic similarity in embeddings is the measure of how close two pieces of text are in meaning, based on their numerical representations in a shared vector space.
+
+**How semantic similarity works**
+
+- **Text to Numbers:** An AI model (like a transformer) turns words, sentences, or documents into an embedding—a long list of numbers (a vector).
+- **Clustering in Space:** These numbers act as coordinates in a high-dimensional space. Words or sentences with similar meanings land physically close to each other. For example, "king" and "queen" sit near each other, and "how to get a business loan" sits near "steps to secure company funding", even though the words are different.
+- **Measuring Distance:**  The system calculates the closeness of these vectors.
+
+**Common Ways to Measure Similarity**
+
+- **Cosine Similarity:** Measures the angle between two vectors. It outputs a score from 0 (completely unrelated) to 1 (identical meaning).
+- **Euclidean Distance:** Measures the straight-line distance between two points in the vector space. A smaller distance means a higher similarity.
+
+
+
