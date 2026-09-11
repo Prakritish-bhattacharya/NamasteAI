@@ -866,27 +866,17 @@ $$
 
 Calculate the dot product:
 
-$$
-A\cdot B
-=
-(1)(0)+(0)(1)
-$$
-
-$$
-=0
-$$
-
-Therefore:
-
-$$
+```math
+\begin{aligned}
+A \cdot B
+&= (1)(0) + (0)(1) \\
+&= 0 \\[6pt]
 \text{Cosine Similarity}
-=
-\frac{0}{\|A\|\|B\|}
-$$
-
-$$
-\boxed{0}
-$$
+&= \frac{A \cdot B}{\|A\|\|B\|} \\
+&= \frac{0}{\|A\|\|B\|} \\
+&= \boxed{0}
+\end{aligned}
+```
 
 The angle between them is:
 
@@ -924,19 +914,14 @@ $$
 
 Calculate:
 
-$$
-A\cdot B
-=
-(1)(-1)+(2)(-2)
-$$
-
-$$
-=-1-4
-$$
-
-$$
-=-5
-$$
+```math
+\begin{aligned}
+A \cdot B
+&= (1)(-1) + (2)(-2) \\
+&= -1 - 4 \\
+&= \boxed{-5}
+\end{aligned}
+```
 
 Magnitudes:
 
