@@ -935,20 +935,14 @@ $$
 
 Therefore:
 
-$$
+```math
+\begin{aligned}
 \text{Cosine Similarity}
-=
-\frac{-5}{\sqrt5\sqrt5}
-$$
-
-$$
-=
-\frac{-5}{5}
-$$
-
-$$
-\boxed{-1}
-$$
+&= \frac{-5}{\sqrt{5}\sqrt{5}} \\
+&= \frac{-5}{5} \\
+&= \boxed{-1}
+\end{aligned}
+```
 
 So:
 
@@ -1128,20 +1122,14 @@ because their directions are identical.
 
 However, Euclidean distance is:
 
-$$
+```math
+\begin{aligned}
 d(A,B)
-=
-\sqrt{(10-1)^2+(20-2)^2}
-$$
-
-$$
-=
-\sqrt{81+324}
-$$
-
-$$
-=\sqrt{405}
-$$
+&= \sqrt{(10-1)^2 + (20-2)^2} \\
+&= \sqrt{81 + 324} \\
+&= \sqrt{405}
+\end{aligned}
+```
 
 which is large.
 
@@ -1334,14 +1322,14 @@ Whenever you get a cosine similarity question in an interview:
 
 Remember:
 
-$$
+```math
 \boxed{
 \text{Cosine Similarity}
 =
-\frac{\text{Dot Product}}
-{\text{Magnitude A}\times\text{Magnitude B}}
+\frac{\mathbf{A}\cdot\mathbf{B}}
+{\|\mathbf{A}\|\,\|\mathbf{B}\|}
 }
-$$
+```
 
 
 
@@ -1357,14 +1345,14 @@ The entire concept can be compressed into one sentence:
 
 And the equation you should remember is:
 
-$$
+```math
 \boxed{
 \text{Cosine Similarity}
 =
 \frac{\mathbf{A}\cdot\mathbf{B}}
-{\|\mathbf{A}\|\|\mathbf{B}\|}
+{\|\mathbf{A}\|\,\|\mathbf{B}\|}
 }
-$$
+```
 
 The three most important cases:
 
